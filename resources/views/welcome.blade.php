@@ -2,9 +2,9 @@
 
 @section('cabecera')
     <h1>Javier López</h1>
-    <p>Web creada con Laravel 5 y Bootstrap</p>
+    <p><h2>Inicio</h2></p>
 
         @endsection
 @section('cuerpo')
-<p><a href="notes">NOTES</a></p>
+    <p>Web creada con Laravel 5.1 LTS y Bootstrap</p>
     @endsection

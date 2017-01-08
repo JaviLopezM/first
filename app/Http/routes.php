@@ -23,7 +23,7 @@ Route::post('create', 'NotesController@store');
 Route::get('notes/{note}', 'NotesController@show')->where('note', '[0-9]+');
 
 
-
+//  Exemple de com interpreta Laravel un llistat:
 //      Mostro una cadena per pantalla sense crear un arxiu per mostrar-ho.
 Route::get('notes/array', function (){
    return [

@@ -22,8 +22,8 @@ class NotesTest extends TestCase
     // (En aquest cas hi ha 2 notes a la base de dades).
 
         // afegim 2 notes a la taula "note"
-        Note::create(['note' =>'My first note']);
-        Note::create(['note' =>'second note']);
+//        Note::create(['note' =>'My first note']);
+//        Note::create(['note' =>'second note']);
 
     //When
     //Accions que faría l'usuari
@@ -43,8 +43,8 @@ class NotesTest extends TestCase
     public function test_create_note()
     {
 //        when
-        $this->post('notes')
+        $this->post('create')
 //            then
-            ->see('Create Notes');
+            ->see('Creating a note');
     }
 }

@@ -6,14 +6,10 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Note;
 
 class NotesController extends Controller
 {
-
-    public function ()
-    {
-        
-    }
 
     /**
      * Display a listing of the resource.
@@ -22,72 +18,34 @@ class NotesController extends Controller
      */
     public function index()
     {
-        //
+        //carrego a la vriable $notes tot
+        // el que hi ha a la base de dades registrada a la classe
+        //Note
+        $notes = Note::all();
+
+        //dd a laravel equival a vardump
+        //mostra el contingut de la variable$notes.
+
+
+//    retorna la vista notes i a més li passem la variable notes
+//    com a 2on paràmetre per a que ho mostre.
+        return view('notes/list', compact('notes'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('notes/create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        return "Creating a note";
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+    public function show($note){
+    dd($note);
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }

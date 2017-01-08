@@ -14,9 +14,9 @@
 
     @foreach ($notes as $note)
         <li>
-            {{ $note->note }}
+            {{ $note -> note }}
             <!-- La linia anterior equival a -->
-            <!-- <?php echo $note ->note ?> -->
+            <!-- <?php echo $note -> note ?> -->
         </li>
     @endforeach
 </ul>

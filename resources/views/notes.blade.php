@@ -20,6 +20,7 @@
         </li>
     @endforeach
 </ul>
+
     <form method="post">
         <!-- La següent línia equival a la a la etiqueta input per a adquirir el token.-->
         {!! csrf_field() !!}

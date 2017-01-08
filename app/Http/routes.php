@@ -18,8 +18,10 @@ Route::get('/', function () {
 Route::get('notes', 'NotesController@index');
 
 
-Route::get('create', 'NotesController@create');
-Route::post('create', 'NotesController@store');
+Route::get('notes/create', 'NotesController@create');
+Route::post('notes', 'NotesController@store');
+
+
 Route::get('notes/{note}', 'NotesController@show')->where('note', '[0-9]+');
 
 

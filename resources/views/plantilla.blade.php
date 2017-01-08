@@ -24,7 +24,7 @@
 
   </head>
 
-  <body style="padding-left: 20px">
+  <body style="padding-left: 20px; margin-bottom: 50px; margin-right: 20px">
 
     <!-- Fixed navbar -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -36,25 +36,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" >Menú</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="http://localhost:8000">Home</a></li>
-            <li><a href="/notes">Notes</a></li>
-            <li><a href="/create">Create</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="notes/create.blade.php">Create</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a href="#">Separated link</a></li>
-                <li><a href="#">One more separated link</a></li>
-              </ul>
-            </li>
+            <li><a href="/">Home</a></li>
+            <li><a href="{{url('notes')}}">Notes</a></li>
+            <li><a href="{{url('notes/create')}}">Create</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -62,8 +49,9 @@
 
 
     <div class="jumbotron" style="padding-left: 10px">
-
-      @yield('cabecera')
+        <h1>Javier López</h1>
+        <br>
+        <p>Web creada con Laravel 5.1 LTS y Bootstrap</p>
     </div>
     @yield('cuerpo')
   </body>

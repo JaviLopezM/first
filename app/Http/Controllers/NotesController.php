@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Note;
+use Illuminate\Support\Facades\Redirect;
 
 class NotesController extends Controller
 {
@@ -39,7 +40,11 @@ class NotesController extends Controller
 
     public function store()
     {
-        return "Creating a note";
+        $data = request()->all();
+
+        Note::create($data);
+
+        return redirect()->to('notes');
 
     }
 

@@ -1,10 +1,16 @@
 @extends('plantilla')
 
-@section('cabecera')
-    <h1>Javier López</h1>
-    <p><h2>Create</h2></p>
 
-@endsection
+
+
 @section('cuerpo')
-    <p>Creating a note</p>
+
+    <h1>Create a note</h1>
+    <form method="post" action="{{ url('notes') }}" class="form">
+        {!! csrf_field() !!}
+        <textarea name="note" class="form-control"></textarea><br>
+
+        <button type="submit" class="btn btn-primary">Create note</button>
+
+    </form>
     @endsection

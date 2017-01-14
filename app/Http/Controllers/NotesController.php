@@ -40,6 +40,11 @@ class NotesController extends Controller
 
     public function store()
     {
+        $this->validate(request(), [
+//            seleccionamos el campo con el que vamos a trabajar 'notes' i decimos que sea
+//        obligatorio 'require' i que tenga un máximo de 200 carácteres.
+            'note'=>['required', 'max:200']
+        ]);
         $data = request()->all();
 
         Note::create($data);

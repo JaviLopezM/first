@@ -19,3 +19,10 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'remember_token' => str_random(10),
     ];
 });
+    //Creem un model que utilitzarem al seeder per utilitzar el faker que crearà contingut aleatori
+$factory->define(App\Note::class, function (Faker\Generator $faker) {
+    return [
+        'note' => $faker->paragraph,
+
+    ];
+});

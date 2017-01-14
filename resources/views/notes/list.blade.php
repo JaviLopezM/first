@@ -14,5 +14,7 @@
             </li>
         @endforeach
     </ul>
+    {{--per a paginar les notes--}}
+    {!! $notes->render() !!}
 
 @endsection

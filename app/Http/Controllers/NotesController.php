@@ -21,8 +21,11 @@ class NotesController extends Controller
     {
         //carrego a la vriable $notes tot
         // el que hi ha a la base de dades registrada a la classe
-        //Note
-        $notes = Note::all();
+        //Note i ho mostro tot amb 'all'
+        //$notes = Note::all();
+
+        // Si vull mostrar la surtida paginada
+        $notes = Note::paginate(20);
 
         //dd a laravel equival a vardump
         //mostra el contingut de la variable$notes.

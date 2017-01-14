@@ -8,7 +8,7 @@ use Illuminate\Foundation\Testing\DatabaseTransactions;
 use App\Note;
 class NotesTest extends TestCase
 {
-    use WithoutMiddleware;
+
     /**
      * test personaltzat,
      * per comprovar el funcionament

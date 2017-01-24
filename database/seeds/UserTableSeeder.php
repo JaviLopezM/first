@@ -21,6 +21,7 @@ class UserTableSeeder extends Seeder
             'DNI'=>'46599098V',
             'email'=>'javierlopez@iesmontsia.org',
             'telefon'=>'618 717 494',
+            'adreça'=>'Sant Josep 137 2-1, Sant Carles de la Ràpita',
             'role'=> 'admin',
             'password'=> bcrypt('123456')
         ]);

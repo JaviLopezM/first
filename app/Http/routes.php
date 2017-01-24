@@ -58,6 +58,11 @@ Route::post('registro', [
     'uses' => 'Auth\AuthController@postRegister',
     'as' => 'register'
 ]);
+
+Route::get('perfil', [
+    'uses' => 'PersonalController@index',
+    'as'   => 'personal'
+]);
     //Reset password
 
     // Password reset link request routes...

@@ -71,6 +71,7 @@ class AuthController extends Controller
             'telefon' => $data['telefon'],
             'DNI' => $data['DNI'],
             'email' => $data['email'],
+            'adreça' => $data['adreça'],
             'password' => bcrypt($data['password']),
         ]);
         $user->role = 'user';

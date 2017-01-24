@@ -12,17 +12,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      {{--CDN de bootstrap--}}
+      {{--Tema predeterminat de bootstrap--}}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{asset('css/app.css')}}">
+    {{-- Opcions propies de CSS --}}
+      <link rel="stylesheet" href="{{asset('css/app.css')}}">
 
-      <!-- Optional theme -->
-      <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">-->>
+
+
 {{--CDN JQuery per a que funcione algunes opcions de Bootstrap com el desplegable--}}
       <script
               src="https://code.jquery.com/jquery-3.1.1.min.js"
               integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-              crossorigin="anonymous"></script>
+              crossorigin="anonymous">
+
+      </script>
+      <!-- CDN de Bootstrap-->
+      <script
+              src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+              integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+              crossorigin="anonymous">
+
+      </script>
     <title>Javier López</title>
 
 
@@ -55,12 +65,13 @@
           <ul class="nav navbar-nav navbar-right">
             @if (Auth::guest())
               <li><a href="{{ route('login') }}">Login</a></li>
-              <li><a href="{{ route('register') }}">Register</a></li>
+              <li><a href="{{ route('register') }}">Registro</a></li>
             @else
                   <li class="dropdown">
 
                 <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->nom }} <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
+                    <li><a href="{{ route('personal') }}">Perfil</a></li>
                   <li><a href="{{ route('logout') }}">Logout</a></li>
                 </ul>
               </li>
@@ -80,6 +91,5 @@
     </div>
     @yield('cuerpo')
   </body>
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 </html>

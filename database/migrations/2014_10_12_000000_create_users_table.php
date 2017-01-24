@@ -19,8 +19,9 @@ class CreateUsersTable extends Migration
             $table->string('DNI')->unique();
             $table->string('email')->unique();
             $table->string('telefon');
+            $table->string('adreça');
             $table->string('password', 60);
-            $table->enum('role',['user', 'editor', 'admin']);//camp personalitzt
+            $table->enum('role',['user', 'editor', 'admin']);//camp personalitzat entre estos 3.
             $table->rememberToken();
             $table->timestamps();
         });

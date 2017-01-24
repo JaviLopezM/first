@@ -18,6 +18,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'DNI'=>$faker->numberBetween(11111111,999999999),
         'telefon'=>$faker->phoneNumber,
         'email' => $faker->safeEmail,
+        'adreça' => $faker->address,
         'password' => bcrypt(str_random(10)),
         'remember_token' => str_random(10),
         'role' => $faker->randomElement(['user', 'editor'])

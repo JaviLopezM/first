@@ -2,7 +2,7 @@
 
 
 @section('cuerpo')
-    <h1>List</h1>
+    <h1>Lista de Notas</h1>
     <a href="{{ url('notes/create') }}">Add a note</a><br>
     <hr>
     <ul>

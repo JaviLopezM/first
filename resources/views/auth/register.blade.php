@@ -18,20 +18,20 @@
                             </div>
                         @endif
 
-                        <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
+                        <form class="form-horizontal" role="form" method="POST" action="{{ route('auth.store') }}">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Nombre</label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" name="nom" value="{{ old('nom') }}">
+                                    <input type="text" class="form-control" name="nombre" value="{{ old('nombre') }}">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Apellidos</label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" name="cognoms" value="{{ old('cognoms') }}">
+                                    <input type="text" class="form-control" name="apellidos" value="{{ old('apellidos') }}">
                                 </div>
                             </div>
 
@@ -45,7 +45,7 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Teléfono</label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" name="telefon" value="">
+                                    <input type="text" class="form-control" name="telefono" value="">
                                 </div>
                             </div>
 
@@ -59,7 +59,7 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Dirección</label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" name="adreça" value="{{ old('adreça') }}">
+                                    <input type="text" class="form-control" name="direccion" value="{{ old('dieccion') }}">
                                 </div>
                             </div>
 

@@ -13,15 +13,16 @@
 
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
-        'nom' => $faker->firstName,
-        'cognoms' =>$faker->lastName,
+        'nombre' => $faker->firstName,
+        'apellidos' =>$faker->lastName,
         'DNI'=>$faker->numberBetween(11111111,999999999),
-        'telefon'=>$faker->phoneNumber,
+        'telefono'=>$faker->phoneNumber,
         'email' => $faker->safeEmail,
-        'adreça' => $faker->address,
+        'direccion' => $faker->address,
         'password' => bcrypt(str_random(10)),
         'remember_token' => str_random(10),
-        'role' => $faker->randomElement(['user', 'editor'])
+        'role' => $faker->randomElement(['user', 'editor']),
+        'foto' => 'default.jpg'
     ];
 });
     //Creem un model que utilitzarem al seeder per utilitzar el faker que crearà contingut aleatori

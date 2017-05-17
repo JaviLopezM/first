@@ -16,14 +16,15 @@ class UserTableSeeder extends Seeder
 
         //Li dic que vull crear un usuari en concret.
         factory(App\User::class)->create([
-            'nom'=>'Javier',
-            'cognoms'=>'Lopez Moreno',
+            'nombre'=>'Javier',
+            'apellidos'=>'Lopez Moreno',
             'DNI'=>'46599098V',
             'email'=>'javierlopez@iesmontsia.org',
-            'telefon'=>'618 717 494',
-            'adreça'=>'Sant Josep 137 2-1, Sant Carles de la Ràpita',
+            'telefono'=>'618 717 494',
+            'direccion'=>'Sant Josep 137 2-1, Sant Carles de la Ràpita',
             'role'=> 'admin',
-            'password'=> bcrypt('123456')
+            'password'=> bcrypt('123456'),
+            'foto'=>'default.jpg'
         ]);
 
         //Ara crido la funció factory on hem definit la creació d'usuaris i li diem la cantitat.

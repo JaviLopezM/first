@@ -25,7 +25,7 @@ class NotesController extends Controller
         //$notes = Note::all();
 
         // Si vull mostrar la surtida paginada
-        $notes = Note::paginate(20);
+        $notes = Note::paginate(5);
 
         //dd a laravel equival a vardump
         //mostra el contingut de la variable$notes.

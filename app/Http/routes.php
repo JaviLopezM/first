@@ -11,59 +11,64 @@
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
-Route::get('/', [
-        'uses' => 'HomeController@index',
-        'as'   => 'home'
-]);
+Route::get('/', function () {
+    return view('welcome');
+});
+//Route::get('/home', [
+//        'uses' => 'HomeController@index',
+//        'as'   => 'home'
+//]);
 
-Route::get('notes', 'NotesController@index');
+Route::get('notes', 'NotesController@index')->middleware('auth');
 
 
-Route::get('notes/create', 'NotesController@create');
+Route::get('notes/create', 'NotesController@create')->middleware('auth');
 Route::post('notes', 'NotesController@store');
 
 
 Route::get('notes/{note}', 'NotesController@show')->where('note', '[0-9]+');
 
 
-//  Exemple de com interpreta Laravel un llistat:
-//      Mostro una cadena per pantalla sense crear un arxiu per mostrar-ho.
-Route::get('notes/array', function (){
-   return [
-    'notes' => 'create array, create muchas cosas, ajoderse'
-   ];
-});
-Route::get('login', [
-    'uses' => 'Auth\AuthController@getLogin',
-    'as' => 'login'
+Route::resource('auth' , 'Auth\AuthController');
+Route::get('logout', [
+    'uses' => 'Auth\AuthController@getLogout',
+    'as' => 'logout'
 ]);
 Route::post('login', [
     'uses' => 'Auth\AuthController@postLogin',
     'as' => 'login'
 ]);
-Route::get('logout', [
-    'uses' => 'Auth\AuthController@getLogout',
-    'as' => 'logout'
+//Route::delete('destroy', [
+//    'uses' => 'Auth\AuthController@destroy',
+//    'as' => 'eliminar'
+//]);
+Route::get('login', [
+    'uses' => 'Auth\AuthController@getLogin',
+    'as' => 'login'
+]);
+//ruta per llistar usuaris
+
+Route::get('list', 'PersonalController@getUsers')->middleware('auth');
+
+//Route::get('perfil',function(){
+//  $users = User::all();
+//  return view('auth.perfil',['users'=>$users]);
+//});
+//ruta per eliminar usuaris
+//Route::delete('user/{id}', function ($id) {
+//    $user = App\User::find($id)->delete();
+//    return Redirect::back();
+//});
+Route::post('/eliminar/{$user_id}', [
+    'as' => 'eliminar',
+    'uses' => 'PersonalController@destroyUser'
 ]);
 
-// Registration routes...
-Route::get('registro', [
-    'uses' => 'Auth\AuthController@getRegister',
-    'as' => 'register'
-]);
-Route::post('registro', [
-    'uses' => 'Auth\AuthController@postRegister',
-    'as' => 'register'
-]);
+Route::get('perfil', 'PersonalController@getPerfil')->name('perfil')->middleware('auth');
+Route::post('actualizar', 'PersonalController@postActualizar')->name('Actualizar')->middleware('auth');
+Route::get('/images/{filename}', 'UserController@getImage')->name('Imagen');
 
-Route::get('perfil', [
-    'uses' => 'PersonalController@index',
-    'as'   => 'personal'
-]);
-    //Reset password
+    //Preparo les rutes per a fer una recuperació de contrasenya si tinc temps.
 
     // Password reset link request routes...
     Route::get('password/email', 'Auth\PasswordController@getEmail');

@@ -1,21 +1,14 @@
-
-/**
- * Created by PhpStorm.
- * User: javier
- * Date: 4/01/17
- * Time: 21:38
- */
-
 <html lang="es">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+      <meta name="csrf-token" content="{{ csrf_token() }}">
       {{--Tema predeterminat de bootstrap--}}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     {{-- Opcions propies de CSS --}}
       <link rel="stylesheet" href="{{asset('css/app.css')}}">
+      <link rel="stylesheet" href="{{asset('css/animate.css')}}">
 
 
 
@@ -33,6 +26,7 @@
               crossorigin="anonymous">
 
       </script>
+    <script src="/js/laravel.js"></script>
     <title>Javier López</title>
 
 
@@ -54,29 +48,32 @@
           </button>
             <a class="navbar-brand" href="#">JaviDAW.com</a>
         </div>
-        <div id="navbar" class="class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div id="navbar" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li><a href="/">Home</a></li>
             <li><a href="{{url('notes')}}">Notes</a></li>
-            <li><a href="{{url('notes/create')}}">Create</a></li>
+              @if (!Auth::guest())
+            <li><a href="{{url('notes/create')}}">Crear</a></li>
+              @endif
 
           </ul>
 
-          <ul class="nav navbar-nav navbar-right">
+          <ul class="nav navbar-nav navbar-right jello">
             @if (Auth::guest())
               <li><a href="{{ route('login') }}">Login</a></li>
-              <li><a href="{{ route('register') }}">Registro</a></li>
+              <li><a href="{{ route('auth.create') }}">Registro</a></li>
             @else
-                  <li class="dropdown">
-
-                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->nom }} <span class="caret"></span></a>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->nombre }} <span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                    <li><a href="{{ route('personal') }}">Perfil</a></li>
+                    <li class=""><a href="{{ route('perfil') }}">Perfil</a></li>
+                    <li><a href="{{url('list')}}">Usuarios</a></li>
                   <li><a href="{{ route('logout') }}">Logout</a></li>
                 </ul>
-              </li>
+            </li>
                   {{--<li><a href="{{ route('logout') }}">Logout</a></li>--}}
             @endif
+
           </ul>
         </div><!--/.nav-collapse -->
       </div>

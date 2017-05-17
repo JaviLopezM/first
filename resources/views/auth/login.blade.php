@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Login</div>
+                    {{--<div class="panel-heading">Login</div>--}}
                     <div class="panel-body">
                         @if (count($errors) > 0)
                             <div class="alert alert-danger">
@@ -21,7 +21,7 @@
 
                         <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
+                            {!! csrf_field() !!}
                             <div class="form-group">
                                 <label class="col-md-4 control-label">{{ trans('validation.attributes.email') }}</label>
                                 <div class="col-md-6">
@@ -51,7 +51,7 @@
                                     <button type="submit" class="btn btn-primary" style="margin-right: 15px;">
                                         Login
                                     </button>
-
+                                    {!! csrf_field() !!}
                                     <a href="/password/email">Forgot Your Password?</a>
                                 </div>
                             </div>
